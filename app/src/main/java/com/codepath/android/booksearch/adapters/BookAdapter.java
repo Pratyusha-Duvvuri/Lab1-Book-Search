@@ -26,15 +26,23 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         public TextView tvTitle;
         public TextView tvAuthor;
 
-        public ViewHolder(View itemView) {
+
+        public ViewHolder(View itemView, Context context) {
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
 
-            ivCover = (ImageView)itemView.findViewById(R.id.ivBookCover);
-            tvTitle = (TextView)itemView.findViewById(R.id.tvTitle);
-            tvAuthor = (TextView)itemView.findViewById(R.id.tvAuthor);
+            ivCover = (ImageView) itemView.findViewById(R.id.ivBookCover);
+            tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
+            tvAuthor = (TextView) itemView.findViewById(R.id.tvAuthor);
+
+
+            // Attach a click listener to the entire row view
+
+
         }
+
+
     }
 
     public BookAdapter(Context context, ArrayList<Book> aBooks) {
@@ -52,7 +60,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         View bookView = inflater.inflate(R.layout.item_book, parent, false);
 
         // Return a new holder instance
-        BookAdapter.ViewHolder viewHolder = new BookAdapter.ViewHolder(bookView);
+        BookAdapter.ViewHolder viewHolder = new BookAdapter.ViewHolder(bookView, context);
         return viewHolder;
     }
 
