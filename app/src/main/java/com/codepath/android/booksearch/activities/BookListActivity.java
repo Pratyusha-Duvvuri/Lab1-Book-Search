@@ -1,5 +1,6 @@
 package com.codepath.android.booksearch.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.codepath.android.booksearch.ItemClickSupport;
 import com.codepath.android.booksearch.R;
@@ -59,7 +59,14 @@ public class BookListActivity extends AppCompatActivity {
                 new ItemClickSupport.OnItemClickListener() {
                     @Override
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                        Toast.makeText(BookListActivity.this, "HelloWorld", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(BookListActivity.this, "HelloWorld", Toast.LENGTH_SHORT).show();
+                        Book b = abooks.get(position);
+                        Intent i = new Intent(BookListActivity.this, BookDetailActivity.class);
+
+                        i.putExtra("book", b);
+
+                        startActivity(i); // brings up the second activity
+
                     }
                 }
         );
