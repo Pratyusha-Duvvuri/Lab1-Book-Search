@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.codepath.android.booksearch.ItemClickSupport;
 import com.codepath.android.booksearch.R;
@@ -58,7 +59,7 @@ public class BookListActivity extends AppCompatActivity {
                 new ItemClickSupport.OnItemClickListener() {
                     @Override
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                        // do it
+                        Toast.makeText(BookListActivity.this, "HelloWorld", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
